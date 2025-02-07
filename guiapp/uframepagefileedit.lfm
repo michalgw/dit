@@ -1,0 +1,4 @@
+inherited FramePageFileEdit: TFramePageFileEdit
+  Height = 311
+  Width = 411
+end

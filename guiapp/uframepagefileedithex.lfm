@@ -1,0 +1,111 @@
+inherited FramePageFileEditHex: TFramePageFileEditHex
+  Height = 480
+  Width = 611
+  ClientHeight = 480
+  ClientWidth = 611
+  object ToolBar1: TToolBar[0]
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 611
+    Caption = 'ToolBar1'
+    TabOrder = 0
+  end
+  object MPHexEditorEx1: TMPHexEditorEx[1]
+    Cursor = crIBeam
+    Left = 0
+    Height = 454
+    Top = 26
+    Width = 611
+    BackupExtension = '.bak'
+    PrintOptions.MarginLeft = 20
+    PrintOptions.MarginTop = 15
+    PrintOptions.MarginRight = 25
+    PrintOptions.MarginBottom = 25
+    PrintOptions.Flags = [pfSelectionBold, pfMonochrome]
+    PrintFont.Height = -15
+    PrintFont.Name = 'Courier New'
+    Align = alClient
+    Font.Height = -15
+    Font.Name = 'Courier New'
+    ParentFont = False
+    TabOrder = 1
+    BytesPerRow = 16
+    Translation = tkAsIs
+    OffsetFormat = '-!10:0x|'
+    Colors.Background = clWindow
+    Colors.ChangedBackground = 11075583
+    Colors.ChangedText = clMaroon
+    Colors.CursorFrame = clNavy
+    Colors.Offset = clBlack
+    Colors.OddColumn = clBlue
+    Colors.EvenColumn = clNavy
+    Colors.CurrentOffsetBackground = clBtnShadow
+    Colors.OffsetBackground = clBtnFace
+    Colors.CurrentOffset = clBtnHighlight
+    Colors.Grid = clBtnFace
+    Colors.NonFocusCursorFrame = clAqua
+    Colors.ActiveFieldBackground = clWindow
+    FocusFrame = True
+    DrawGridLines = False
+    Version = 'september 30, 2007; © markus stephany, vcl[at]mirkes[dot]de'
+    ColWidths = (
+      57
+      6
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      9
+      9
+      18
+      9
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      10
+      19
+    )
+    RowHeights = (
+      0
+      0
+      19
+    )
+  end
+end

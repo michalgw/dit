@@ -1,0 +1,4 @@
+inherited FramePageStart: TFramePageStart
+  Height = 416
+  Width = 555
+end

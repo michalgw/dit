@@ -1,0 +1,316 @@
+inherited FramePageImage: TFramePageImage
+  Height = 505
+  Width = 803
+  ClientHeight = 505
+  ClientWidth = 803
+  object PanelTop: TPanel[0]
+    Left = 0
+    Height = 23
+    Top = 26
+    Width = 803
+    Align = alTop
+    AutoSize = True
+    BevelOuter = bvNone
+    ClientHeight = 23
+    ClientWidth = 803
+    TabOrder = 0
+    object SpeedButton1: TSpeedButton
+      Left = 0
+      Height = 23
+      Top = 0
+      Width = 25
+      Action = ActionUpDir
+      Align = alLeft
+      ShowCaption = False
+    end
+    object ComboBoxPath: TComboBox
+      AnchorSideRight.Side = asrBottom
+      Left = 25
+      Height = 23
+      Top = 0
+      Width = 778
+      Align = alClient
+      ItemHeight = 15
+      OnChange = ComboBoxPathChange
+      ReadOnly = True
+      TabOrder = 0
+    end
+  end
+  object PanelRight: TPanel[1]
+    Left = 633
+    Height = 456
+    Top = 49
+    Width = 170
+    Align = alRight
+    BevelOuter = bvNone
+    ClientHeight = 456
+    ClientWidth = 170
+    TabOrder = 1
+    object ValEditInfo: TValueListEditor
+      Left = 0
+      Height = 456
+      Top = 0
+      Width = 170
+      Align = alClient
+      AutoEdit = False
+      DefaultColWidth = 120
+      FixedCols = 0
+      RowCount = 2
+      TabOrder = 0
+      KeyOptions = [keyEdit, keyAdd]
+      Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goColSizing, goAutoAddRows, goAlwaysShowEditor, goThumbTracking]
+      ColWidths = (
+        120
+        46
+      )
+    end
+  end
+  object SplitterL: TSplitter[2]
+    Left = 168
+    Height = 456
+    Top = 49
+    Width = 5
+  end
+  object SplitterR: TSplitter[3]
+    Left = 628
+    Height = 456
+    Top = 49
+    Width = 5
+    Align = alRight
+    ResizeAnchor = akRight
+  end
+  object ToolBar1: TToolBar[4]
+    Left = 0
+    Height = 26
+    Top = 0
+    Width = 803
+    Caption = 'ToolBar1'
+    Images = FormMain.ImageListImage
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Action = ActionCopyFrom
+    end
+    object ToolButton2: TToolButton
+      Left = 32
+      Top = 2
+      Action = ActionCopyTo
+    end
+    object ToolButton3: TToolButton
+      Left = 78
+      Top = 2
+      Action = ActionDelete
+    end
+    object ToolButton4: TToolButton
+      Left = 101
+      Height = 22
+      Top = 2
+      Caption = 'ToolButton4'
+      Style = tbsSeparator
+    end
+    object ToolButton5: TToolButton
+      Left = 109
+      Top = 2
+      Action = ActionViewIcon
+    end
+    object ToolButton6: TToolButton
+      Left = 132
+      Top = 2
+      Action = ActionViewList
+    end
+    object ToolButton7: TToolButton
+      Left = 155
+      Top = 2
+      Action = ActionViewReport
+    end
+    object ToolButton8: TToolButton
+      Left = 178
+      Top = 2
+      Action = ActionViewSmallIcon
+    end
+    object ToolButton9: TToolButton
+      Left = 201
+      Height = 22
+      Top = 2
+      Caption = 'ToolButton9'
+      Style = tbsSeparator
+    end
+    object ToolButton10: TToolButton
+      Left = 209
+      Top = 2
+      Action = ActionShowTree
+    end
+    object ToolButton11: TToolButton
+      Left = 232
+      Top = 2
+      Action = ActionShowInfo
+    end
+    object ToolButton12: TToolButton
+      Left = 255
+      Height = 22
+      Top = 2
+      Caption = 'ToolButton12'
+      Style = tbsSeparator
+    end
+    object ToolButton13: TToolButton
+      Left = 24
+      Height = 22
+      Top = 2
+      Caption = 'ToolButton13'
+      Style = tbsSeparator
+    end
+    object ToolButton14: TToolButton
+      Left = 55
+      Top = 2
+      Action = ActionMkDir
+    end
+  end
+  object ListViewFiles: TListView[5]
+    Left = 173
+    Height = 456
+    Top = 49
+    Width = 455
+    Align = alClient
+    AutoSortIndicator = True
+    Columns = <    
+      item
+        Caption = 'Name'
+        Width = 300
+      end    
+      item
+        Alignment = taRightJustify
+        Caption = 'Size'
+        Width = 80
+      end    
+      item
+        Caption = 'Time'
+        Width = 80
+      end    
+      item
+        Caption = 'Attributes'
+        Width = 60
+      end>
+    HideSelection = False
+    LargeImages = FormMain.ImageListFileListB
+    MultiSelect = True
+    PopupMenu = PopupMenuList
+    ReadOnly = True
+    RowSelect = True
+    SmallImages = FormMain.ImageListFileListS
+    SortType = stData
+    TabOrder = 5
+    ViewStyle = vsReport
+    OnCompare = ListViewFilesCompare
+    OnDblClick = ListViewFilesDblClick
+    OnResize = ListViewFilesResize
+    OnSelectItem = ListViewFilesSelectItem
+  end
+  object TreeViewDir: TTreeView[6]
+    Left = 0
+    Height = 456
+    Top = 49
+    Width = 168
+    Align = alLeft
+    HideSelection = False
+    TabOrder = 6
+    Options = [tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+  end
+  object ActionListImg: TActionList[7]
+    Images = FormMain.ImageListImage
+    Left = 240
+    Top = 156
+    object ActionCopyFrom: TAction
+      Caption = 'Copy from image'
+      Hint = 'Copy from image'
+      ImageIndex = 0
+      OnExecute = ActionCopyFromExecute
+    end
+    object ActionCopyTo: TAction
+      Caption = 'Copy to image'
+      Hint = 'Copy to image'
+      ImageIndex = 1
+      OnExecute = ActionCopyToExecute
+    end
+    object ActionDelete: TAction
+      Caption = 'Delete'
+      Hint = 'Delete'
+      ImageIndex = 2
+      OnExecute = ActionDeleteExecute
+    end
+    object ActionViewIcon: TAction
+      AutoCheck = True
+      Caption = 'Icons'
+      GroupIndex = 1
+      Hint = 'Icons'
+      ImageIndex = 3
+      OnExecute = ActionViewIconExecute
+    end
+    object ActionViewList: TAction
+      AutoCheck = True
+      Caption = 'List'
+      GroupIndex = 1
+      Hint = 'List'
+      ImageIndex = 4
+      OnExecute = ActionViewIconExecute
+    end
+    object ActionViewReport: TAction
+      AutoCheck = True
+      Caption = 'Report'
+      Checked = True
+      GroupIndex = 1
+      Hint = 'Report'
+      ImageIndex = 5
+      OnExecute = ActionViewIconExecute
+    end
+    object ActionViewSmallIcon: TAction
+      AutoCheck = True
+      Caption = 'Small icons'
+      GroupIndex = 1
+      Hint = 'Small icons'
+      ImageIndex = 6
+      OnExecute = ActionViewIconExecute
+    end
+    object ActionShowTree: TAction
+      AutoCheck = True
+      Caption = 'ActionShowTree'
+      Checked = True
+      ImageIndex = 7
+      OnExecute = ActionShowTreeExecute
+    end
+    object ActionShowInfo: TAction
+      AutoCheck = True
+      Caption = 'ActionShowInfo'
+      Checked = True
+      ImageIndex = 8
+      OnExecute = ActionShowInfoExecute
+    end
+    object ActionUpDir: TAction
+      Caption = 'ActionUpDir'
+      ImageIndex = 9
+      OnExecute = ActionUpDirExecute
+    end
+    object ActionMkDir: TAction
+      Caption = 'Make directory'
+      Hint = 'Make directory'
+      ImageIndex = 10
+      OnExecute = ActionMkDirExecute
+    end
+  end
+  object PopupMenuList: TPopupMenu[8]
+    Images = FormMain.ImageListImage
+    Left = 240
+    Top = 216
+    object MenuItem1: TMenuItem
+      Action = ActionCopyFrom
+    end
+    object MenuItem2: TMenuItem
+      Action = ActionCopyTo
+    end
+    object MenuItem3: TMenuItem
+      Action = ActionDelete
+    end
+  end
+end

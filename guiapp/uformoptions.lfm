@@ -1,0 +1,42 @@
+object FormOptions: TFormOptions
+  Left = 329
+  Height = 292
+  Top = 119
+  Width = 282
+  Caption = 'FormOptions'
+  ClientHeight = 292
+  ClientWidth = 282
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.0.4'
+  object TIPropertyGrid1: TTIPropertyGrid
+    Left = 0
+    Height = 246
+    Top = 0
+    Width = 282
+    Align = alClient
+    CheckboxForBoolean = True
+    DefaultValueFont.Color = clWindowText
+    Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkUString, tkUChar, tkHelper, tkFile, tkClassRef]
+    Indent = 16
+    NameFont.Color = clWindowText
+    PreferredSplitterX = 160
+    SplitterX = 160
+    ValueFont.Color = clMaroon
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 34
+    Top = 252
+    Width = 270
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel]
+  end
+end

@@ -1,0 +1,5 @@
+/guiapp/lib
+*.lps
+/library/package/lib
+/guiapp/dimgtoolg.res
+/guiapp/dimgtoolg.exe
