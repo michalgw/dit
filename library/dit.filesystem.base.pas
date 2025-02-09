@@ -181,6 +181,7 @@ type
     class function Detect(ADisk: TDiskImage; AOptions: TFileSystemOptions = nil): Boolean; virtual;
     class procedure Format(ADisk: TDiskImage; AOptions: TFileSystemOptions = nil); virtual; abstract;
     class function FileSystemName: String; virtual;
+    class function FileSystemAlias: String; virtual;
     class function HasDirs: Boolean; virtual;
     class function AvaiableAttributes: TExtAttributesInfo; virtual;
     class function FileSystemOptionsClass: TFileSystemOptionsClass; virtual;
@@ -209,6 +210,7 @@ type
 procedure RegisterFileSystem(AFileSystem: TFileSystemClass); overload;
 procedure RegisterFileSystem(AFileSystems: array of TFileSystemClass); overload;
 function KnownFileSystems: specialize TList<TFileSystemClass>;
+function FindFileSystemByAlias(AAlias: String): TFileSystemClass;
 
 implementation
 
@@ -237,6 +239,16 @@ begin
   if not Assigned(FKnownFileSystems) then
     FKnownFileSystems := specialize TList<TFileSystemClass>.Create;
   Result := FKnownFileSystems;
+end;
+
+function FindFileSystemByAlias(AAlias: String): TFileSystemClass;
+begin
+  if not Assigned(FKnownFileSystems) then
+    Exit(nil);
+  for Result in FKnownFileSystems do
+    if SameText(Result.FileSystemAlias, AAlias) then
+      Exit;
+  Result := nil;
 end;
 
 { TClusterBasedFileSystem }
@@ -497,6 +509,11 @@ begin
 end;
 
 class function TFileSystem.FileSystemName: String;
+begin
+  Result := '';
+end;
+
+class function TFileSystem.FileSystemAlias: String;
 begin
   Result := '';
 end;

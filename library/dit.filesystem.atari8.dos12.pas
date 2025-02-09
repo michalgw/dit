@@ -294,6 +294,7 @@ type
   public
     class function Detect(ADisk: TDiskImage; AOptions: TFileSystemOptions): Boolean; override;
     class function FileSystemName: String; override;
+    class function FileSystemAlias: String; override;
     class procedure Format(ADisk: TDiskImage; AOptions: TFileSystemOptions); override;
     class function FileSystemOptionsClass: TFileSystemOptionsClass; override;
   end;
@@ -310,6 +311,7 @@ type
   public
     class function Detect(ADisk: TDiskImage; AOptions: TFileSystemOptions): Boolean; override;
     class function FileSystemName: String; override;
+    class function FileSystemAlias: String; override;
     class function AvaiableAttributes: TExtAttributesInfo; override;
     class procedure Format(ADisk: TDiskImage; AOptions: TFileSystemOptions); override;
     class function FileSystemOptionsClass: TFileSystemOptionsClass; override;
@@ -335,6 +337,7 @@ type
     class function Detect(ADisk: TDiskImage; AOptions: TFileSystemOptions): Boolean; override;
     class procedure Format(ADisk: TDiskImage; AOptions: TFileSystemOptions); override;
     class function FileSystemName: String; override;
+    class function FileSystemAlias: String; override;
   end;
 
   TMyDOSVTOC = array[0..Pred(33*256)] of TDOSByte;
@@ -374,6 +377,7 @@ type
     class function Detect(ADisk: TDiskImage; AOptions: TFileSystemOptions): Boolean; override;
     class procedure Format(ADisk: TDiskImage; AOptions: TFileSystemOptions); override;
     class function FileSystemName: String; override;
+    class function FileSystemAlias: String; override;
     class function HasDirs: Boolean; override;
   end;
 
@@ -507,8 +511,8 @@ begin
     for I := 1 to Disk.SectorCount do
       if VTOCBitmap[I] then
         Exit(I);
+    Result := 0;
   end;
-  Result := 0;
 end;
 
 procedure TMyDOSFileSystem.DecodeFileLink(const ABuf; var AFileNo, ANextSector,
@@ -787,6 +791,11 @@ begin
 end;
 
 class function TMyDOSFileSystem.FileSystemName: String;
+begin
+  Result := 'MyDOS';
+end;
+
+class function TMyDOSFileSystem.FileSystemAlias: String;
 begin
   Result := 'MyDOS';
 end;
@@ -1681,6 +1690,11 @@ begin
   Result := 'Atari DOS 1';
 end;
 
+class function TDOS1FileSystem.FileSystemAlias: String;
+begin
+  Result := 'ADOS1';
+end;
+
 class procedure TDOS1FileSystem.Format(ADisk: TDiskImage;
   AOptions: TFileSystemOptions);
 var
@@ -1811,6 +1825,11 @@ end;
 class function TDOS2FileSystem.FileSystemName: String;
 begin
   Result := 'Atari DOS 2';
+end;
+
+class function TDOS2FileSystem.FileSystemAlias: String;
+begin
+  Result := 'ADOS2';
 end;
 
 class function TDOS2FileSystem.AvaiableAttributes: TExtAttributesInfo;
@@ -2098,6 +2117,11 @@ end;
 class function TDOS25FileSystem.FileSystemName: String;
 begin
   Result := 'Atari DOS 2.5';
+end;
+
+class function TDOS25FileSystem.FileSystemAlias: String;
+begin
+  Result := 'ADOS2.5';
 end;
 
 initialization

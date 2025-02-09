@@ -120,6 +120,7 @@ type
 function KnownDiskImageFormats: TDiskImageFormats;
 procedure RegisterDiskImageFormat(AFormat: TDiskImageClass);
 function FindDiskImageClassByExt(AExt: String): TDiskImageClass;
+function FindDiskImageClassByAlias(AAlias: String): TDiskImageClass;
 
 implementation
 
@@ -153,6 +154,16 @@ begin
     Exit(nil);
   for Result in RegisteredDiskImageFormats do
     if Result.FormatInfo.SupportedFileExt(AExt) then
+      Exit;
+  Result := nil;
+end;
+
+function FindDiskImageClassByAlias(AAlias: String): TDiskImageClass;
+begin
+  if not Assigned(RegisteredDiskImageFormats) then
+    Exit(nil);
+  for Result in RegisteredDiskImageFormats do
+    if SameText(Result.FormatInfo.FormatAlias, AAlias) then
       Exit;
   Result := nil;
 end;
