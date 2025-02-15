@@ -1,0 +1,3 @@
+[submodule "use/mphexeditor"]
+	path = use/mphexeditor
+	url = git@github.com:michalgw/mphexeditor.git
